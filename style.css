@@ -430,6 +430,120 @@ body {
     60% { transform: translateY(-5px); }
 }
 
+/* Плавающая кнопка чата */
+.chat-widget {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1100;
+}
+
+/* Круглая кнопка с иконкой */
+.chat-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    background: #ff8562;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.chat-toggle img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.chat-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    background: #ff7245;
+}
+
+/* Окно чата */
+.chat-window {
+    position: absolute;
+    right: 0;
+    bottom: 80px; /* немного выше кнопки */
+    width: 260px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    overflow: hidden;
+    display: none;          /* по умолчанию скрыто */
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* заголовок окна */
+.chat-window-header {
+    background: #111;
+    color: #fff;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.chat-window-header .chat-close {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0 4px;
+}
+
+/* содержимое окна */
+.chat-window-body {
+    padding: 10px 12px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.chat-window-body textarea {
+    width: 100%;
+    resize: none;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 8px 10px;
+    outline: none;
+}
+
+.chat-window-body textarea:focus {
+    border-color: #ff8562;
+    box-shadow: 0 0 0 2px rgba(255,133,98,0.2);
+}
+
+.chat-send {
+    align-self: flex-end;
+    background: #ff8562;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.chat-send:hover {
+    background: #ff7245;
+    transform: translateY(-1px);
+}
+
 /* Mobile */
 @media (max-width: 980px) {
     .hamburger {

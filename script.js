@@ -134,6 +134,26 @@ if (scrollArrow) {
     });
 }
 
+// Плавающее окно "Написать нам"
+const chatToggle = document.querySelector('.chat-toggle');
+const chatWindow = document.querySelector('.chat-window');
+const chatClose  = document.querySelector('.chat-close');
+
+if (chatToggle && chatWindow) {
+    // Клик по круглой кнопке - открыть/закрыть окно
+    chatToggle.addEventListener('click', () => {
+        const isOpen = chatWindow.style.display === 'flex';
+        chatWindow.style.display = isOpen ? 'none' : 'flex';
+    });
+}
+
+if (chatClose && chatWindow) {
+    // Клик по крестику в заголовке - закрыть окно
+    chatClose.addEventListener('click', () => {
+        chatWindow.style.display = 'none';
+    });
+}
+
 // Initialize animations on load
 document.addEventListener('DOMContentLoaded', () => {
     // Hero title animation
