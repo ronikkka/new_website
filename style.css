@@ -98,47 +98,6 @@ body {
     transform: scaleX(1);
 }
 
-/* Подменю */
-.submenu { 
-    position: absolute; 
-    top: 80px; 
-    left: 50%;
-    transform: translateX(-50%);
-    background: white; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
-    min-width: 250px; 
-    opacity: 0; 
-    visibility: hidden; 
-    transition: all 0.3s; 
-    border-radius: 8px;
-    padding: 10px 0;
-}
-
-.menu-item:hover .submenu { 
-    opacity: 1; 
-    visibility: visible; 
-}
-
-.submenu__list { 
-    list-style: none; 
-    padding: 0;
-}
-
-.submenu__link { 
-    display: block; 
-    padding: 12px 25px; 
-    color: #000 !important; 
-    font-size: 16px; 
-    text-decoration: none;
-    transition: background 0.3s ease;
-}
-
-.submenu__link:hover {
-    background: rgba(255, 133, 98, 0.1);
-    color: #ff8562 !important;
-}
-
-/* ===== ПЕРВЫЙ ЭКРАН (HERO) ===== */
 .hero-cover {
     height: 100vh;
     min-height: 800px;
@@ -857,11 +816,6 @@ section {
     
     .why-us-icon {
         margin-bottom: 15px;
-    }
-    
-    .cookie-wrapper {
-        flex-direction: column;
-        text-align: center;
     }
 }
 
