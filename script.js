@@ -29,28 +29,26 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Header появляется после 1 экрана (100vh) + active nav link
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
-    const scrolledOneScreen = window.scrollY > window.innerHeight; // ← 1 ЭКРАН ВНИЗ
-    
+    const scrolledOneScreen = window.scrollY > window.innerHeight; 
+
     if (scrolledOneScreen) {
-        header.style.top = '0px';  // ← ПОКАЗЫВАЕТСЯ
+        header.style.top = '0px';      
     } else {
-        header.style.top = '-100px'; // ← СКРЫВАЕТСЯ
+        header.style.top = '-100px';   
     }
-    
-    // Active nav link
+
     const sections = document.querySelectorAll('section[id]');
     let current = '';
-    
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         if (scrollY >= (sectionTop - 200)) {
             current = section.getAttribute('id');
         }
     });
-    
+
     document.querySelectorAll('.nav a').forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${current}`) {
@@ -58,6 +56,7 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
 
 // Service cards animation
 const observerOptions = {
@@ -123,6 +122,17 @@ document.querySelector('input[name="phone"]').addEventListener('input', function
     
     e.target.value = result.slice(0, 16);
 });
+
+const scrollArrow = document.querySelector('.scroll-arrow');
+
+if (scrollArrow) {
+    scrollArrow.addEventListener('click', () => {
+        window.scrollTo({
+            top: window.innerHeight,
+            behavior: 'smooth'
+        });
+    });
+}
 
 // Initialize animations on load
 document.addEventListener('DOMContentLoaded', () => {
