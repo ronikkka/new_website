@@ -29,14 +29,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Header scroll effects
+// Header появляется после 1 экрана (100vh) + active nav link
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
-    const scrolled = window.scrollY > 100;
+    const scrolledOneScreen = window.scrollY > window.innerHeight; // ← 1 ЭКРАН ВНИЗ
     
-    header.style.background = scrolled 
-        ? 'rgba(255,255,255,0.98)' 
-        : 'rgba(255,255,255,0.95)';
+    if (scrolledOneScreen) {
+        header.style.top = '0px';  // ← ПОКАЗЫВАЕТСЯ
+    } else {
+        header.style.top = '-100px'; // ← СКРЫВАЕТСЯ
+    }
     
     // Active nav link
     const sections = document.querySelectorAll('section[id]');
@@ -44,7 +46,6 @@ window.addEventListener('scroll', () => {
     
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
         if (scrollY >= (sectionTop - 200)) {
             current = section.getAttribute('id');
         }
