@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>полиграфия и сувенирная продукция в СПб</title>
     <meta name="description" content="Сувенирка с логотипом. Печать полиграфии в СПб">
@@ -9,178 +9,177 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&subset=latin,cyrillic" rel="stylesheet">
 </head>
 <body>
-    <header class="header fixed-header" id="nav">
-        <div class="header__padding"></div>
-        <nav class="header-nav">
-            <ul class="header-menu">
-                <li class="menu-item"><a href="#services" class="menu-link">Услуги</a></li>
-                <li class="menu-item"><a href="#catalog" class="menu-link">Каталог</a></li>
-                <li class="menu-item"><a href="#delivery" class="menu-link">Доставка</a></li>
-                <li class="menu-item"><a href="#payment" class="menu-link">Оплата</a></li>
-                <li class="menu-item"><a href="#contacts" class="menu-link">Обратная связь</a></li>
+    <!-- Header -->
+    <header class="header">
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="nav" id="nav">
+            <ul>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#catalog">Каталог</a></li>
+                <li><a href="#delivery">Доставка</a></li>
+                <li><a href="#payment">Оплата</a></li>
+                <li><a href="#contacts">Обратная связь</a></li>
             </ul>
         </nav>
-        <div class="header__padding"></div>
     </header>
 
-    <section class="hero-cover" id="home">
-        <div class="hero-bg" style="background-image: url('images/fon.webp');"></div>
-        <div class="hero-filter"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    воплощаем идеи в<br>
-                    <strong>осязаемый успех</strong>
-                </h1>
-                <p class="hero-subtitle">промо сувениры с вашим лого | полиграфия | корпоративный мерч</p>
-            </div>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                <span class="hero-title-part1">воплощаем идеи в</span>
+                <span class="hero-title-part2">осязаемый успех</span>
+            </h1>
+            <p class="hero-subtitle">промо сувениры с вашим лого | полиграфия | корпоративный мерч</p>
         </div>
-        <a href="#services" class="scroll-arrow hero-arrow">
-            <div class="hero-arrow__wrapper">
-                <svg class="hero-arrow__svg" viewBox="0 0 38.417 18.592">
-                    <path d="M19.208,18.592c-0.241,0-0.483-0.087-0.673-0.261L0.327,1.74c-0.408-0.372-0.438-1.004-0.066-1.413c0.372-0.409,1.004-0.439,1.413-0.066L19.208,16.24L36.743,0.261c0.411-0.372,1.042-0.342,1.413,0.066c0.372,0.408,0.343,1.041-0.065,1.413L19.881,18.332C19.691,18.505,19.449,18.592,19.208,18.592z"/>
-                </svg>
-            </div>
-        </a>
+        <div class="scroll-arrow"></div>
     </section>
 
-    <section class="services-section" id="services">
+    <!-- Services -->
+    <section id="services" class="section services-section">
         <div class="container">
             <h2 class="section-title">Наши услуги</h2>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card" data-service="1">
                     <div class="service-image" style="background-image: url('images/polygraphy.jpg');"></div>
                     <div class="service-content">
-                        <h3><a href="#">Полиграфия</a></h3>
-                        <p>Печать рекламных буклетов, брошюр, листовок, календарей для увеличения продаж и узнаваемости бренда.</p>
+                        <h3 class="service-title">Полиграфия</h3>
+                        <p class="service-desc">Печать рекламных буклетов, брошюр, листовок, календарей для увеличения продаж и узнаваемости бренда.</p>
+                        <a href="#" class="service-btn">подробнее</a>
                     </div>
-                    <a href="#" class="service-btn">подробнее</a>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-service="2">
                     <div class="service-image" style="background-image: url('images/souvenirs.jpg');"></div>
                     <div class="service-content">
-                        <h3><a href="#">Сувенирная продукция</a></h3>
-                        <p>Нанесение логотипа на кружки, ручки и ежедневники для укрепления имиджа компании.</p>
+                        <h3 class="service-title">Сувенирная продукция</h3>
+                        <p class="service-desc">Нанесение логотипа на кружки, ручки и ежедневники для укрепления имиджа компании.</p>
+                        <a href="#" class="service-btn">подробнее</a>
                     </div>
-                    <a href="#" class="service-btn">подробнее</a>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-service="3">
                     <div class="service-image" style="background-image: url('images/merch.jpg');"></div>
                     <div class="service-content">
-                        <h3><a href="#">Корпоративный мерч</a></h3>
-                        <p>Футболки, бейсболки, шопперы с логотипом компании для укрепления командного духа.</p>
+                        <h3 class="service-title">Корпоративный мерч</h3>
+                        <p class="service-desc">Футболки, бейсболки, шопперы с логотипом компании для укрепления командного духа.</p>
+                        <a href="#" class="service-btn">подробнее</a>
                     </div>
-                    <a href="#" class="service-btn">подробнее</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="why-us-section">
+    <!-- Why Us -->
+    <section class="section why-section">
         <div class="container">
             <h2 class="section-title">Почему мы?</h2>
-            <p class="section-subtitle">Мы индивидуально подходим к каждому заказчику и оказываем качественные услуги, соответствующие вашим потребностям.</p>
-            <div class="why-us-grid">
-                <div class="why-us-column">
-                    <div class="why-us-item">
-                        <div class="why-us-icon">✓</div>
-                        <div class="why-us-text">
-                            <h4>Большой опыт работы</h4>
-                            <p>Более 10 лет опыта в сфере полиграфии, сувенирной продукции и нанесения.</p>
-                        </div>
-                    </div>
-                    <div class="why-us-item">
-                        <div class="why-us-icon">✓</div>
-                        <div class="why-us-text">
-                            <h4>Профессионализм</h4>
-                            <p>Команда опытных специалистов обеспечивает высокое качество продукции и услуг.</p>
-                        </div>
+            <p class="section-subtitle">
+                Мы индивидуально подходим к каждому заказчику и оказываем качественные услуги, соответствующие вашим потребностям.
+            </p>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon"></div>
+                    <div class="feature-content">
+                        <h3>Большой опыт работы</h3>
+                        <p>Более 10 лет опыта в сфере полиграфии, сувенирной продукции и нанесения.</p>
                     </div>
                 </div>
-                <div class="why-us-column">
-                    <div class="why-us-item">
-                        <div class="why-us-icon">✓</div>
-                        <div class="why-us-text">
-                            <h4>Качество услуг</h4>
-                            <p>Мы строго следим за соблюдением всех стандартов качества и используем современные технологии.</p>
-                        </div>
+                <div class="feature">
+                    <div class="feature-icon"></div>
+                    <div class="feature-content">
+                        <h3>Профессионализм</h3>
+                        <p>Команда опытных специалистов обеспечивает высокое качество продукции и услуг.</p>
                     </div>
-                    <div class="why-us-item">
-                        <div class="why-us-icon">✓</div>
-                        <div class="why-us-text">
-                            <h4>Индивидуальный подход</h4>
-                            <p>Учитываем особенности каждого клиента и предлагаем уникальные решения.</p>
-                        </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"></div>
+                    <div class="feature-content">
+                        <h3>Качество услуг</h3>
+                        <p>Мы строго следим за соблюдением всех стандартов качества и используем современные технологии.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"></div>
+                    <div class="feature-content">
+                        <h3>Индивидуальный подход</h3>
+                        <p>Учитываем особенности каждого клиента и предлагаем уникальные решения.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="clients-section">
+    <!-- Clients -->
+    <section class="section clients-section">
         <div class="container">
             <h2 class="section-title">Нас выбирают</h2>
             <div class="clients-grid">
-                <div class="client-logo"><img src="images/client1.png" alt="Логотип клиента 1"></div>
-                <div class="client-logo"><img src="images/client2.png" alt="Логотип клиента 2"></div>
-                <div class="client-logo"><img src="images/client3.png" alt="Логотип клиента 3"></div>
-                <div class="client-logo"><img src="images/client4.png" alt="Логотип клиента 4"></div>
+                <a href="#" target="_blank">
+                    <img src="images/client1.png" alt="Клиент 1" class="client-logo">
+                </a>
+                <a href="#" target="_blank">
+                    <img src="images/client2.png" alt="Клиент 2" class="client-logo">
+                </a>
+                <a href="#" target="_blank">
+                    <img src="images/client3.png" alt="Клиент 3" class="client-logo">
+                </a>
+                <a href="#" target="_blank">
+                    <img src="images/client4.svg" alt="Клиент 4" class="client-logo">
+                </a>
             </div>
         </div>
     </section>
 
-    <section class="contacts-section" id="contacts">
+    <!-- Contact -->
+    <section id="contacts" class="section contact-section">
         <div class="container">
             <h2 class="section-title">Свяжитесь с нами</h2>
-            <p class="section-subtitle">Задавайте вопросы, оставляйте комментарии или запросите дополнительную информацию. Мы всегда рады общению!</p>
-            <form class="contact-form">
+            <p class="section-subtitle">
+                Задавайте вопросы, оставляйте комментарии или запросите дополнительную информацию. Мы всегда рады общению!
+            </p>
+            <form class="contact-form" id="contactForm">
                 <div class="form-row">
-                    <div class="form-group half">
+                    <div class="form-group">
                         <input type="text" name="name" placeholder="Имя" required>
                     </div>
-                    <div class="form-group half">
-                        <input type="tel" name="phone" placeholder="+7(000)000-0000" required>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="+7 (000) 000-00-00" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <input type="email" name="email" placeholder="email">
                 </div>
                 <div class="form-group">
-                    <textarea name="message" placeholder="Текст сообщения" rows="3"></textarea>
+                    <textarea name="message" placeholder="Текст сообщения" rows="4"></textarea>
                 </div>
-                <button type="submit" class="submit-btn">Отправить заявку</button>
+                <button type="submit" class="btn btn-primary">Отправить заявку</button>
             </form>
-            <p class="form-note">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности.</p>
+            <p class="form-policy">
+                Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности.
+            </p>
         </div>
     </section>
 
-    <button class="scroll-top" aria-label="Вернуться к началу страницы">
-        <svg width="50" height="50" viewBox="0 0 50 50">
-            <rect width="50" height="50" rx="50" fill="#ffffff" fill-opacity="0.90"/>
-            <path d="M14 28L25 18l10 10" stroke="#000000" stroke-width="1"/>
-        </svg>
-    </button>
-
+    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-col">
-                <div class="footer-copyright">
-                    © 2025 dpi agency<br>
-                    ИП Хлебникова О.А<br>
-                    ИНН 781021018642
-                </div>
-            </div>
-            <div class="footer-col center">
-                <ul class="footer-menu">
-                    <li><a href="#services">Услуги</a></li>
-                    <li><a href="#catalog">Каталог</a></li>
-                    <li><a href="#delivery">Доставка</a></li>
-                    <li><a href="#payment">Оплата</a></li>
-                    <li><a href="#contacts">Обратная связь</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <a href="#home" class="footer-scrolltop">наверх <svg width="5" height="17"><path d="M5.78 3.85L3.12.28c-.14-.14-.3-.14-.43 0L.03 3.85c-.14.13-.08.27.13.27h1.72V20h2.06V4.12h1.72c.15 0 .22-.07.19-.17a.26.26 0 00-.07-.1z"/></svg></a>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="#">Полиграфия</a></li>
+                <li><a href="#">Сувенирная продукция с логотипом</a></li>
+                <li><a href="#">Корпоративный мерч</a></li>
+                <li><a href="#">Политика конфиденциальности</a></li>
+                <li><a href="#">Доставка</a></li>
+                <li><a href="#">Оплата</a></li>
+                <li><a href="#">Каталог</a></li>
+            </ul>
+            <div class="footer-info">
+                <p>© 2025 dpi agency</p>
+                <p>Санкт-Петербург</p>
+                <p>ИП Хлебникова О.А</p>
+                <p>ИНН 781021018642</p>
             </div>
         </div>
     </footer>
