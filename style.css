@@ -631,58 +631,6 @@ section {
     stroke: white;
 }
 
-/* ===== WHATSAPP ===== */
-.whatsapp-chat {
-    position: fixed;
-    bottom: 120px;
-    right: 40px;
-    z-index: 999;
-}
-
-.whatsapp-btn {
-    background: #25D366;
-    border-radius: 50%;
-    width: 70px;
-    height: 70px;
-    border: none;
-    cursor: pointer;
-    position: relative;
-    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.whatsapp-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
-}
-
-.whatsapp-animated {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    width: 90px;
-    height: 90px;
-    border: 2px solid #25D366;
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-}
-
-.whatsapp-icon {
-    width: 35px;
-    height: 35px;
-    fill: white;
-}
-
-@keyframes pulse {
-    0% { transform: scale(0.9); opacity: 1; }
-    100% { transform: scale(1.3); opacity: 0; }
-}
-
-
-/* ===== ФУТЕР ===== */
 .footer {
     background: #111;
     color: white;
@@ -835,12 +783,7 @@ section {
     .scroll-arrow {
         bottom: 30px;
     }
-    
-    .whatsapp-chat {
-        right: 20px;
-        bottom: 100px;
-    }
-    
+        
     .scroll-top {
         right: 20px;
         bottom: 30px;

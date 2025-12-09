@@ -1,18 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Инициализация всех функций
-    initMobileMenu();
     initHeaderVisibility();
     initScrollEffects();
     initScrollTop();
-    initWhatsApp();
-    initCookieBanner();
     initSmoothScroll();
     initForm();
     initScrollArrow();
     initAnimations();
     centerAllContent();
     initHeroHeight();
-    
     console.log('Сайт загружен и готов! 🚀');
 });
 
@@ -125,44 +120,6 @@ function initScrollArrow() {
     });
 }
 
-function initMobileMenu() {
-    const burger = document.querySelector('.burger');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    
-    if (!burger || !mobileMenu) return;
-    
-    burger.addEventListener('click', function(e) {
-        e.stopPropagation();
-        this.classList.toggle('opened');
-        mobileMenu.classList.toggle('opened');
-        
-        // Блокируем скролл при открытом меню
-        if (mobileMenu.classList.contains('opened')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-    });
-    
-    // Закрытие меню при клике вне его
-    document.addEventListener('click', function(e) {
-        if (!mobileMenu.contains(e.target) && !burger.contains(e.target)) {
-            burger.classList.remove('opened');
-            mobileMenu.classList.remove('opened');
-            document.body.style.overflow = '';
-        }
-    });
-    
-    // Закрытие меню при клике на ссылку
-    mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function() {
-            burger.classList.remove('opened');
-            mobileMenu.classList.remove('opened');
-            document.body.style.overflow = '';
-        });
-    });
-}
-
 function initScrollEffects() {
     // Параллакс эффект для фона
     const heroBg = document.querySelector('.hero-bg');
@@ -216,31 +173,6 @@ function initScrollTop() {
     });
 }
 
-
-function initWhatsApp() {
-    const whatsappBtn = document.querySelector('.whatsapp-btn');
-    
-    if (!whatsappBtn) return;
-    
-    whatsappBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Открываем WhatsApp в новом окне
-        const phone = '79217775060'; // Ваш номер
-        const message = encodeURIComponent('Здравствуйте! Заинтересовался вашими услугами.');
-        const url = `https://wa.me/${phone}?text=${message}`;
-        
-        window.open(url, '_blank');
-        
-        // Анимация нажатия
-        this.style.transform = 'scale(0.9)';
-        setTimeout(() => {
-            this.style.transform = '';
-        }, 200);
-    });
-}
-
-
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         // Исключаем якоря с #, которые не ведут к элементам
@@ -260,15 +192,6 @@ function initSmoothScroll() {
                     top: targetPosition,
                     behavior: 'smooth'
                 });
-                
-                // Закрываем мобильное меню если открыто
-                const mobileMenu = document.querySelector('.mobile-menu');
-                const burger = document.querySelector('.burger');
-                if (mobileMenu?.classList.contains('opened')) {
-                    mobileMenu.classList.remove('opened');
-                    burger?.classList.remove('opened');
-                    document.body.style.overflow = '';
-                }
             }
         });
     });
