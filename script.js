@@ -1,55 +1,70 @@
 // Инициализация при загрузке
 document.addEventListener('DOMContentLoaded', function() {
     initMobileMenu();
-    initSubmenu();
     initScrollEffects();
     initScrollTop();
     initWhatsApp();
     initCookieBanner();
     initSmoothScroll();
     initForm();
+    initHeaderVisibility();
+    initScrollArrow();
 });
 
-// Мобильное меню
-function initMobileMenu() {
-    const burger = document.querySelector('.burger');
-    const mobileMenu = document.querySelector('.mobile-menu');
+// 1. ПОЯВЛЕНИЕ ШАПКИ ПРИ СКРОЛЛЕ
+function initHeaderVisibility() {
+    const header = document.getElementById('nav');
+    const heroSection = document.querySelector('.hero-cover');
+    const heroHeight = heroSection.offsetHeight;
     
-    burger.addEventListener('click', function() {
-        burger.classList.toggle('opened');
-        mobileMenu.classList.toggle('opened');
-    });
-}
-
-// Подменю
-function initSubmenu() {
-    const triggers = document.querySelectorAll('.submenu-trigger');
-    triggers.forEach(trigger => {
-        trigger.addEventListener('mouseenter', function() {
-            const submenu = this.nextElementSibling;
-            submenu.style.opacity = '1';
-            submenu.style.visibility = 'visible';
-        });
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
         
-        trigger.parentElement.addEventListener('mouseleave', function() {
-            const submenu = this.querySelector('.submenu');
-            submenu.style.opacity = '0';
-            submenu.style.visibility = 'hidden';
-        });
+        // Шапка появляется при скролле ниже первого экрана
+        if (scrolled > heroHeight - 100) {
+            header.classList.add('visible');
+        } else {
+            header.classList.remove('visible');
+        }
     });
 }
 
-// Эффекты скролла
+// 2. СТРЕЛКА СКРОЛЛА
+function initScrollArrow() {
+    const scrollArrow = document.querySelector('.scroll-arrow');
+    
+    scrollArrow.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        if (targetSection) {
+            window.scrollTo({
+                top: targetSection.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    });
+}
+
+// 3. ЭФФЕКТЫ СКРОЛЛА ДЛЯ ФОНА
 function initScrollEffects() {
     window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
         
-        // Header opacity
-        const header = document.getElementById('nav');
-        const opacity = Math.min(1, 0.8 + scrolled * 0.0002);
-        header.style.background = `rgba(255,255,255,${opacity})`;
+        // Эффект параллакса для фона
+        const heroBg = document.querySelector('.hero-bg');
+        const heroFilter = document.querySelector('.hero-filter');
         
-        // Scroll top button
+        if (heroBg) {
+            heroBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+        
+        if (heroFilter) {
+            heroFilter.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+        
+        // Кнопка "наверх"
         const scrollTop = document.querySelector('.scroll-top');
         if (scrolled > 300) {
             scrollTop.classList.add('show');
@@ -59,39 +74,49 @@ function initScrollEffects() {
     });
 }
 
-// Кнопка наверх
-function initScrollTop() {
-    const scrollTop = document.querySelector('.scroll-top');
-    scrollTop.addEventListener('click', function() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+// 4. МОБИЛЬНОЕ МЕНЮ
+function initMobileMenu() {
+    const burger = document.querySelector('.burger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    if (burger) {
+        burger.addEventListener('click', function() {
+            burger.classList.toggle('opened');
+            mobileMenu.classList.toggle('opened');
+        });
+    }
 }
 
-// WhatsApp чат
+// 5. КНОПКА НАВЕРХ
+function initScrollTop() {
+    const scrollTop = document.querySelector('.scroll-top');
+    if (scrollTop) {
+        scrollTop.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+}
+
+// 6. WHATSAPP
 function initWhatsApp() {
     const chat = document.querySelector('.whatsapp-chat');
     const btn = document.querySelector('.whatsapp-btn');
     
-    btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        chat.classList.toggle('active');
-    });
-    
-    document.addEventListener('click', function() {
-        chat.classList.remove('active');
-    });
-    
-    const closeMobile = document.querySelector('.whatsapp-close-mobile');
-    closeMobile.addEventListener('click', function(e) {
-        e.stopPropagation();
-        chat.classList.remove('active');
-    });
+    if (btn && chat) {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            // Просто открываем ссылку WhatsApp
+            window.open('https://wa.me/79217775060', '_blank');
+        });
+    }
 }
 
-// Cookie баннер
+// 7. COOKIE БАННЕР
 function initCookieBanner() {
     const banner = document.querySelector('.cookie-banner');
     const closeBtn = document.querySelector('.cookie-close');
+    
+    if (!banner || !closeBtn) return;
     
     if (localStorage.getItem('cookiesAccepted')) {
         banner.style.display = 'none';
@@ -104,51 +129,56 @@ function initCookieBanner() {
     });
 }
 
-// Плавный скролл
+// 8. ПЛАВНЫЙ СКРОЛЛ
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+        anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                window.scrollTo({
+                    top: target.offsetTop,
+                    behavior: 'smooth'
                 });
             }
         });
     });
 }
 
-// Форма
+// 9. ФОРМА
 function initForm() {
     const form = document.querySelector('.contact-form');
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Заявка отправлена! Наш менеджер скоро свяжется с вами.');
-        form.reset();
-    });
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Заявка отправлена! Наш менеджер скоро свяжется с вами.');
+            form.reset();
+        });
+    }
 }
 
-// Анимация элементов при скролле
+// 10. АНИМАЦИЯ ПРИ СКРОЛЛЕ
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('animated');
         }
     });
 }, { threshold: 0.1 });
 
+// Наблюдаем за элементами
 document.querySelectorAll('.service-card, .why-us-item, .client-logo').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'all 0.6s ease';
     observer.observe(el);
 });
 
-// Адаптив
+// 11. АДАПТИВ ПРИ ИЗМЕНЕНИИ РАЗМЕРА
 window.addEventListener('resize', function() {
-    // Пересчет размеров при изменении окна
+    // Обновляем высоту героя при ресайзе
+    const heroSection = document.querySelector('.hero-cover');
+    if (heroSection) {
+        heroSection.style.height = window.innerHeight + 'px';
+    }
 });
-[attached_file:1]
+
+// Инициализация высоты героя
+window.dispatchEvent(new Event('resize'));

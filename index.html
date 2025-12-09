@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <!-- Основная навигация -->
+    <!-- Основная навигация - ПЕРВАЯ СЕКЦИЯ ЕЕ НЕТ, ПОЯВЛЯЕТСЯ ПРИ СКРОЛЛЕ -->
     <header class="header fixed-header" id="nav">
         <div class="header__padding"></div>
         <nav class="header-nav">
@@ -38,17 +38,18 @@
                         </div>
                     </div>
                 </li>
-                <li class="menu-item"><a href="/catalog" class="menu-link">Каталог</a></li>
-                <li class="menu-item"><a href="/delivery" class="menu-link">Доставка</a></li>
-                <li class="menu-item"><a href="/payment" class="menu-link">Оплата</a></li>
+                <li class="menu-item"><a href="#services" class="menu-link">Услуги</a></li>
+                <li class="menu-item"><a href="#catalog" class="menu-link">Каталог</a></li>
+                <li class="menu-item"><a href="#delivery" class="menu-link">Доставка</a></li>
+                <li class="menu-item"><a href="#payment" class="menu-link">Оплата</a></li>
                 <li class="menu-item"><a href="#contacts" class="menu-link">Обратная связь</a></li>
             </ul>
         </nav>
         <div class="header__padding"></div>
     </header>
 
-    <!-- Hero секция -->
-    <section class="hero-cover">
+    <!-- Hero секция - ПЕРВЫЙ ЭКРАН -->
+    <section class="hero-cover" id="home">
         <div class="hero-bg" style="background-image: url('hero-bg.jpg');"></div>
         <div class="hero-filter"></div>
         <div class="container">
@@ -60,24 +61,20 @@
                 <p class="hero-subtitle">промо сувениры с вашим лого | полиграфия | корпоративный мерч</p>
             </div>
         </div>
-        <div class="hero-arrow">
+        <!-- Стрелка для скролла -->
+        <a href="#services" class="hero-arrow scroll-arrow">
             <div class="hero-arrow__wrapper">
                 <svg class="hero-arrow__svg" viewBox="0 0 38.417 18.592">
                     <path d="M19.208,18.592c-0.241,0-0.483-0.087-0.673-0.261L0.327,1.74c-0.408-0.372-0.438-1.004-0.066-1.413c0.372-0.409,1.004-0.439,1.413-0.066L19.208,16.24L36.743,0.261c0.411-0.372,1.042-0.342,1.413,0.066c0.372,0.408,0.343,1.041-0.065,1.413L19.881,18.332C19.691,18.505,19.449,18.592,19.208,18.592z"/>
                 </svg>
             </div>
-        </div>
+        </a>
     </section>
 
-    <!-- Услуги -->
+    <!-- Услуги - ВТОРОЙ ЭКРАН -->
     <section class="services-section" id="services">
         <div class="container">
             <h2 class="section-title">Наши услуги</h2>
-            <div class="services-scroll-icon">
-                <svg viewBox="0 0 320 300" height="42" width="42">
-                    <!-- Scroll animation SVG -->
-                </svg>
-            </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-image" style="background-image: url('polygraphy.jpg');"></div>
@@ -107,59 +104,62 @@
         </div>
     </section>
 
-    <!-- Почему мы -->
+    <!-- Почему мы - ТРЕТИЙ ЭКРАН -->
     <section class="why-us-section">
         <div class="container">
-            <h2 class="section-title">Почему мы ?</h2>
+            <h2 class="section-title">Почему мы?</h2>
             <p class="section-subtitle">Мы индивидуально подходим к каждому заказчику и оказываем качественные услуги, соответствующие вашим потребностям.</p>
-            <ul class="why-us-list">
-                <li class="why-us-item">
-                    <div class="why-us-icon"></div>
-                    <div class="why-us-text">
-                        <h4>Большой опыт работы</h4>
-                        <p>Более 10 лет опыта в сфере полиграфии, сувенирной продукции и нанесения.</p>
+            <div class="why-us-grid">
+                <div class="why-us-column">
+                    <div class="why-us-item">
+                        <div class="why-us-icon">✓</div>
+                        <div class="why-us-text">
+                            <h4>Большой опыт работы</h4>
+                            <p>Более 10 лет опыта в сфере полиграфии, сувенирной продукции и нанесения.</p>
+                        </div>
                     </div>
-                </li>
-                <li class="why-us-item">
-                    <div class="why-us-icon"></div>
-                    <div class="why-us-text">
-                        <h4>Профессионализм</h4>
-                        <p>Команда опытных специалистов обеспечивает высокое качество продукции и услуг.</p>
+                    <div class="why-us-item">
+                        <div class="why-us-icon">✓</div>
+                        <div class="why-us-text">
+                            <h4>Профессионализм</h4>
+                            <p>Команда опытных специалистов обеспечивает высокое качество продукции и услуг.</p>
+                        </div>
                     </div>
-                </li>
-                <li class="why-us-item">
-                    <div class="why-us-icon"></div>
-                    <div class="why-us-text">
-                        <h4>Качество услуг</h4>
-                        <p>Мы строго следим за соблюдением всех стандартов качества и используем современные технологии.</p>
+                </div>
+                <div class="why-us-column">
+                    <div class="why-us-item">
+                        <div class="why-us-icon">✓</div>
+                        <div class="why-us-text">
+                            <h4>Качество услуг</h4>
+                            <p>Мы строго следим за соблюдением всех стандартов качества и используем современные технологии.</p>
+                        </div>
                     </div>
-                </li>
-                <li class="why-us-item">
-                    <div class="why-us-icon"></div>
-                    <div class="why-us-text">
-                        <h4>Индивидуальный подход</h4>
-                        <p>Учитываем особенности каждого клиента и предлагаем уникальные решения.</p>
+                    <div class="why-us-item">
+                        <div class="why-us-icon">✓</div>
+                        <div class="why-us-text">
+                            <h4>Индивидуальный подход</h4>
+                            <p>Учитываем особенности каждого клиента и предлагаем уникальные решения.</p>
+                        </div>
                     </div>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Клиенты -->
-    <section class="clients-section">
-        <div class="container">
-            <h2 class="section-title">Наc выбирают</h2>
-            <div class="clients-grid">
-                <div class="client-logo"><img src="client1.png" alt=""></div>
-                <div class="client-logo"><img src="client2.png" alt=""></div>
-                <div class="client-logo"><img src="client3.png" alt=""></div>
-                <div class="client-logo"><img src="client4.png" alt=""></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Контакты -->
-    <a name="contacts"></a>
+    <!-- Клиенты - ЧЕТВЁРТЫЙ ЭКРАН -->
+    <section class="clients-section">
+        <div class="container">
+            <h2 class="section-title">Нас выбирают</h2>
+            <div class="clients-grid">
+                <div class="client-logo"><img src="client1.png" alt="Логотип клиента 1"></div>
+                <div class="client-logo"><img src="client2.png" alt="Логотип клиента 2"></div>
+                <div class="client-logo"><img src="client3.png" alt="Логотип клиента 3"></div>
+                <div class="client-logo"><img src="client4.png" alt="Логотип клиента 4"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты - ПЯТЫЙ ЭКРАН -->
     <section class="contacts-section" id="contacts">
         <div class="container">
             <h2 class="section-title">Свяжитесь с нами</h2>
@@ -200,24 +200,7 @@
             <svg class="whatsapp-icon" width="35" height="32">
                 <path d="M11.2667 12.6981H23.3667M11.2667 16.4717H23.3667M4.8104 23.5777C2.4311 21.1909 1 18.1215 1 14.7736C1 7.16679 8.38723 1 17.5 1C26.6128 1 34 7.16679 34 14.7736C34 22.3804 26.6128 28.5472 17.5 28.5472C15.6278 28.5472 13.8286 28.2868 12.1511 27.8072L12 27.7925L5.03333 31V23.8219L4.8104 23.5777Z"/>
             </svg>
-            <svg class="whatsapp-close" width="16" height="16" viewBox="0 0 23 23"></svg>
         </button>
-        <div class="whatsapp-popup">
-            <div class="whatsapp-container">
-                <div class="whatsapp-header">
-                    <button class="whatsapp-close-mobile">
-                        <svg width="16" height="16" viewBox="0 0 23 23"></svg>
-                    </button>
-                </div>
-                <div class="whatsapp-content">
-                    <h3>написать нам</h3>
-                    <a href="https://wa.me/79217775060" class="whatsapp-link">
-                        <svg class="whatsapp-logo" width="62" height="62"></svg>
-                        <span>WhatsApp</span>
-                    </a>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- Cookie баннер -->
@@ -240,17 +223,15 @@
             </div>
             <div class="footer-col center">
                 <ul class="footer-menu">
-                    <li><a href="/printing">Полиграфия</a></li>
-                    <li><a href="/gifts">Сувенирная продукция с логотипом</a></li>
-                    <li><a href="/merch">Корпоративный мерч</a></li>
-                    <li><a href="/policy">Политика конфиденциальности</a></li>
-                    <li><a href="/delivery">Доставка</a></li>
-                    <li><a href="/payment">Оплата</a></li>
-                    <li><a href="/catalog">Каталог</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#catalog">Каталог</a></li>
+                    <li><a href="#delivery">Доставка</a></li>
+                    <li><a href="#payment">Оплата</a></li>
+                    <li><a href="#contacts">Обратная связь</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <a href="#" class="footer-scrolltop">наверх <svg width="5" height="17"><path d="M5.78 3.85L3.12.28c-.14-.14-.3-.14-.43 0L.03 3.85c-.14.13-.08.27.13.27h1.72V20h2.06V4.12h1.72c.15 0 .22-.07.19-.17a.26.26 0 00-.07-.1z"/></svg></a>
+                <a href="#home" class="footer-scrolltop">наверх <svg width="5" height="17"><path d="M5.78 3.85L3.12.28c-.14-.14-.3-.14-.43 0L.03 3.85c-.14.13-.08.27.13.27h1.72V20h2.06V4.12h1.72c.15 0 .22-.07.19-.17a.26.26 0 00-.07-.1z"/></svg></a>
             </div>
         </div>
     </footer>
@@ -258,4 +239,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-[attached_file:1]
