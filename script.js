@@ -1,3 +1,7 @@
+// ============================================
+// ГЛАВНЫЙ СКРИПТ ДЛЯ САЙТА
+// ============================================
+
 document.addEventListener('DOMContentLoaded', function() {
     initHeaderVisibility();
     initScrollEffects();
@@ -8,10 +12,13 @@ document.addEventListener('DOMContentLoaded', function() {
     initAnimations();
     centerAllContent();
     initHeroHeight();
+    
     console.log('Сайт загружен и готов! 🚀');
 });
 
-
+// ============================================
+// 1. ЦЕНТРИРОВАНИЕ ВСЕГО КОНТЕНТА
+// ============================================
 function centerAllContent() {
     // Центрирование Hero секции
     const heroSection = document.querySelector('.hero-cover');
@@ -56,7 +63,9 @@ function centerAllContent() {
     }
 }
 
-
+// ============================================
+// 2. ВЫСОТА HERO СЕКЦИИ
+// ============================================
 function initHeroHeight() {
     function setHeroHeight() {
         const heroSection = document.querySelector('.hero-cover');
@@ -70,13 +79,12 @@ function initHeroHeight() {
     window.addEventListener('orientationchange', setHeroHeight);
 }
 
+// ============================================
+// 3. ПОЯВЛЕНИЕ ШАПКИ ПРИ СКРОЛЛЕ
+// ============================================
 function initHeaderVisibility() {
     const header = document.getElementById('nav');
     if (!header) return;
-    
-    // Прячем шапку изначально
-    header.style.transform = 'translateY(-100%)';
-    header.style.opacity = '0';
     
     window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
@@ -85,16 +93,15 @@ function initHeaderVisibility() {
         // Показываем шапку при скролле ниже первого экрана
         if (scrolled > heroHeight - 150) {
             header.classList.add('visible');
-            header.style.transform = 'translateY(0)';
-            header.style.opacity = '1';
         } else {
             header.classList.remove('visible');
-            header.style.transform = 'translateY(-100%)';
-            header.style.opacity = '0';
         }
     });
 }
 
+// ============================================
+// 4. СТРЕЛКА ДЛЯ СКРОЛЛА
+// ============================================
 function initScrollArrow() {
     const scrollArrows = document.querySelectorAll('.scroll-arrow, .hero-arrow');
     
@@ -112,7 +119,7 @@ function initScrollArrow() {
             const targetSection = document.querySelector(targetId);
             if (targetSection) {
                 window.scrollTo({
-                    top: targetSection.offsetTop - 80, // Учитываем высоту шапки
+                    top: targetSection.offsetTop - 80,
                     behavior: 'smooth'
                 });
             }
@@ -120,6 +127,9 @@ function initScrollArrow() {
     });
 }
 
+// ============================================
+// 5. ЭФФЕКТЫ ПРИ СКРОЛЛЕ
+// ============================================
 function initScrollEffects() {
     // Параллакс эффект для фона
     const heroBg = document.querySelector('.hero-bg');
@@ -146,20 +156,12 @@ function initScrollEffects() {
                 scrollTopBtn.classList.remove('show');
             }
         }
-        
-        // Плавное появление шапки
-        const header = document.getElementById('nav');
-        if (header) {
-            const opacity = Math.min(1, scrolled * 0.003);
-            if (scrolled > 100) {
-                header.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`;
-            } else {
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0)';
-            }
-        }
     });
 }
 
+// ============================================
+// 6. КНОПКА "НАВЕРХ"
+// ============================================
 function initScrollTop() {
     const scrollTopBtn = document.querySelector('.scroll-top');
     
@@ -173,9 +175,11 @@ function initScrollTop() {
     });
 }
 
+// ============================================
+// 7. ПЛАВНЫЙ СКРОЛЛ ДЛЯ ССЫЛОК
+// ============================================
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        // Исключаем якоря с #, которые не ведут к элементам
         if (anchor.getAttribute('href') === '#') return;
         
         anchor.addEventListener('click', function(e) {
@@ -197,7 +201,9 @@ function initSmoothScroll() {
     });
 }
 
-
+// ============================================
+// 8. ФОРМА ОБРАТНОЙ СВЯЗИ
+// ============================================
 function initForm() {
     const contactForm = document.querySelector('.contact-form');
     
@@ -234,7 +240,6 @@ function initForm() {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Собираем данные формы
         const formData = new FormData(this);
         const data = Object.fromEntries(formData);
         
@@ -245,14 +250,14 @@ function initForm() {
         }
         
         showNotification('Заявка отправлена! Мы свяжемся с вами в ближайшее время.', 'success');
-        
         this.reset();
-       
     });
 }
 
+// ============================================
+// 9. АНИМАЦИИ ПРИ СКРОЛЛЕ
+// ============================================
 function initAnimations() {
-    // Элементы для анимации
     const animatedElements = [
         '.service-card',
         '.why-us-item',
@@ -261,13 +266,11 @@ function initAnimations() {
         '.section-subtitle'
     ];
     
-    // Создаем наблюдатель
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animated');
                 
-                // Для карточек услуг - добавляем задержку
                 if (entry.target.classList.contains('service-card')) {
                     const index = Array.from(entry.target.parentElement.children).indexOf(entry.target);
                     entry.target.style.transitionDelay = `${index * 0.1}s`;
@@ -279,7 +282,6 @@ function initAnimations() {
         rootMargin: '0px 0px -50px 0px'
     });
     
-    // Наблюдаем за всеми элементами
     animatedElements.forEach(selector => {
         document.querySelectorAll(selector).forEach(el => {
             el.style.opacity = '0';
@@ -290,10 +292,12 @@ function initAnimations() {
     });
 }
 
+// ============================================
+// 10. ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
+// ============================================
 
 // Показ уведомлений
 function showNotification(message, type = 'info') {
-    // Создаем элемент уведомления
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
     notification.textContent = message;
@@ -333,28 +337,11 @@ function showNotification(message, type = 'info') {
     }, 4000);
 }
 
-function isMobile() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-}
-
-function fixMobileHeight() {
-    if (isMobile()) {
-        const vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-        
-        const heroSection = document.querySelector('.hero-cover');
-        if (heroSection) {
-            heroSection.style.height = `calc(var(--vh, 1vh) * 100)`;
-        }
-    }
-}
-
+// ============================================
+// 11. ОБРАБОТЧИКИ СОБЫТИЙ ОКНА
+// ============================================
 window.addEventListener('resize', function() {
-
     initHeroHeight();
-
-    fixMobileHeight();
-    
     setTimeout(centerAllContent, 100);
 });
 
@@ -362,7 +349,6 @@ window.addEventListener('orientationchange', function() {
     setTimeout(() => {
         initHeroHeight();
         centerAllContent();
-        fixMobileHeight();
     }, 300);
 });
 
@@ -374,11 +360,12 @@ window.addEventListener('load', function() {
                 el.classList.add('animated');
             }
         });
+        
         const heroBg = document.querySelector('.hero-bg');
         if (heroBg) {
             heroBg.style.transition = 'transform 0.5s ease-out';
         }
-        fixMobileHeight();
+        
         console.log('Все анимации инициализированы! ✨');
     }, 500);
 });
